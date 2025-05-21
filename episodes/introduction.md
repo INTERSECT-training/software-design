@@ -2,17 +2,22 @@
 title: "Introduction"
 teaching: 5
 exercises: 0
-questions:
-- "What is software design?"
-- "What is technical debt?"
-- "How are software design and technical debt related?"
-objectives:
-- "At the end of this module you should understand what we mean when we talk about software design and why good software design is important."
-keypoints:
-- "Software design can refer to two things: the structure and implementation of a piece of software, and the plan how to structure and implement a piece of software."
-- "Technical debt refers to the future cost of reworking a solution that was chosen because it was faster and easier to implement instead of making it more flexible from the beginning."
-- "When software is not well-designed, technical debt accumulates."
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What is software design?
+- What is technical debt?
+- How are software design and technical debt related?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- At the end of this module you should understand what we mean when we talk about software design and why good software design is important.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 # What is Software Design?
 
@@ -44,5 +49,10 @@ In this layer, we need to think about where we put the different parts of our co
 ## Layer 3: Components and Services
 On the highest level, decisions about how different applications and systems talk to each other and how they exchange information are being made. It can also include how the different components of an application are connected. We will not talk much about this layer, but if the applications you develop get to a certain point it should be something you think about.
 
-{% include links.md %}
+::::::::::::::::::::::::::::::::::::: keypoints 
 
+- Software design can refer to two things: the structure and implementation of a piece of software, and the plan how to structure and implement a piece of software.
+- Technical debt refers to the future cost of reworking a solution that was chosen because it was faster and easier to implement instead of making it more flexible from the beginning.
+- When software is not well-designed, technical debt accumulates.
+
+::::::::::::::::::::::::::::::::::::::::::::::::

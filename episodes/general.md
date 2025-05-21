@@ -2,16 +2,23 @@
 title: "General Recommendations"
 teaching: 15
 exercises: 0
-questions:
-- "What are some general recommendations to write better-designed software?"
-objectives:
-- "At the end of this module you should be able to describe some general recommendations to consider when designing software and writing code."
-keypoints:
-- "Every line of code you write should have an intention, a reason it is being written and not just copy-pasted without being understood."
-- "Be consistent in every aspect of your programming."
-- "Document what is most important to you first and then go from there."
-- "Follow the conventions of your community."
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What are some general recommendations to write better-designed software?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- At the end of this module you should be able to describe some general recommendations to consider when designing software and writing code.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
 # Some General Recommendations
 
 The following lists some general recommendations to achive well-designed software. They are rather broad recommendations and can be applied to all layers and many scenarios.
@@ -75,3 +82,15 @@ In summary, documentation enables yourself as well as other people to reuse your
 Many communities have certain programming conventions, for example regarding which code style they typically use, how they test software, or how code is documented. Communities can, for example, be domain specific, programming language specific, or technology specific. Often you will be part of several communities, e.g. the Python community and the computational biology community. Make sure you know the conventions employed by the communities you are a part of and follow the conventions unless you have a good reason not to (intentionality!). It will make it a lot easier for other people in your community to understand the code you write. Sometimes, there might be conflicting conventions in the communities you are part of, in that case it makes sense to consider which community is more likely to read your code or reuse it and use the conventions of that community.
 
 Let’s illustrate this point with the beloved car example. There are certain things when driving a car that once you have learnt them you won’t need to have explained to you again because conventions are in place that it will be the same for all cars. You won’t need to read up on how to open a door, how to use the turn signal, or how to use the break. This is the same for all cars. No documentation is needed (although there probably is some in the manual). Other things however, like the entertainment system, vary from brand to brand, or from model to model. For those, you need documentation to ensure users can use them. And if you choose to deviate from the convention (let’s say you design a Tesla and think how doors open needs to be redesigned), then you definitely need documentation.
+
+
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Every line of code you write should have an intention, a reason it is being written and not just copy-pasted without being understood.
+- Be consistent in every aspect of your programming.
+- Document what is most important to you first and then go from there.
+- Follow the conventions of your community.
+
+::::::::::::::::::::::::::::::::::::::::::::::::

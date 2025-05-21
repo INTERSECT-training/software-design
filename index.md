@@ -1,17 +1,9 @@
 ---
-layout: lesson
-root: .  # Is the only page that doesn't follow the pattern /:path/index.html
-permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+site: sandpaper::sandpaper_site
 ---
-FIXME: home page introduction
 
-<!-- this is an html comment -->
+This is a new lesson built with [The Carpentries Workbench][workbench]. 
 
-{% comment %} This is a comment in Liquid {% endcomment %}
 
-> ## Prerequisites
->
-> FIXME
-{: .prereq}
+[workbench]: https://carpentries.github.io/sandpaper-docs
 
-{% include links.md %}

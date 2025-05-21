@@ -2,31 +2,33 @@
 title: "Structure and Organization"
 teaching: 30
 exercises: 0
-questions:
-- "How can code be best organized to make it easier to understand and maintain it?"
-objectives:
-- "At the end of this module you should have a better understanding of how the different parts of code can be connected in a way so your code is better maintainable."
-- "You will understand what coupling means in software development and how it relates to maintainable code."
-keypoints:
-- "Dependencies need to be managed as well as the code itself."
-- "*Coupling* refers to what extend the components of a piece of software are connected. Ideally, the components are loosely coupled so that if one component is changed, the others do not have to be changed as well."
-- "There are many techniques and best practices to achieve loose coupling, information hiding, abstraction, and the Single Responsibility Principle are some of them."
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How can code be best organized to make it easier to understand and maintain it?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- At the end of this module you should have a better understanding of how the different parts of code can be connected in a way so your code is better maintainable.
+- You will understand what coupling means in software development and how it relates to maintainable code.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
 # Layer 2: Structure and Organization
 
 ## The Dependency Hell
 
-<div style="float:right; padding-left: 10px; ">
-<a href="https://xkcd.com/2347/" target="_blank">
-<img src="/assets/images/dependency_2x.png" alt="XKCD - Dependency" width="280px">
-</a>
-</div>
+
+[![](fig/dependency_2x.png){alt='' style="float:right; padding-left: 10px; width:280px"}](https://xkcd.com/2347/)
 
 Dependency hell refers to the situation in which your code depends on a number of other packages (dependencies) that themselves depend on other packages that depend on other packages, and so on. Some of your dependencies might use the same packages as some other dependencies but a different version of them. Or maybe the dependencies you are using are only available for an outdated version of the programming language you are using and that keeps you from upgrading your code. The more dependencies your code has, the more complex and harder to update it becomes. Therefore, you should carefully choose any package your code *depends* on.
 
 When you choose to use another package, first check who maintains that package and when it was last updated. Is it actively maintained and has a community that reports bugs and makes pull requests? Is it potentially backed by a company? How long has it been since the last release and the last commit? Does the maintainer respond to issues created? By answering these questions, you will get a better sense of how actively maintained the package is. If there hasn’t been much activity in the last few weeks or months, it might be an indicator that the package has been abandoned or will be soon. In that case, you want to be careful about depending on it in your code. If there is not much activity but you still want to use a certain package, then you should be prepared to maintain a fork of the package yourself should it become necessary.
-
-<div style="float:clear"></div>
 
 ## Code Coupling
 
@@ -36,7 +38,7 @@ Cleancommit.io defines loose coupling like this:
 
 > “In a loosely coupled system, the components are independent of each other. Each component has its own well-defined interface and communicates with other components through standardized protocols. Changes to one component do not require changes to other components, making the system more flexible and easier to maintain.”
 >
-> Source: <a href="https://cleancommit.io/blog/whats-the-difference-between-tight-and-loose-coupling/">cleancommit.io</a>
+> Source: [cleancommit.io](https://cleancommit.io/blog/whats-the-difference-between-tight-and-loose-coupling/)
 
 Tight coupling is the opposite of loose coupling, which means that when you change one component you need to change the other one as well to adapt it to the changes of the first component.
 
@@ -45,32 +47,34 @@ Coupling happens everywhere. Between modules, between classes, between layers, b
 
 As an example, look at the following code and think about why this is tightly coupled. How could it be more loosely coupled? Then check the discussion below.
 
-~~~
+```python
 def addition():
     num_1 = float(raw_input("Enter Number One"))
     num_2 = float(raw_input("Enter Number Two"))
     addition = num_1 + num_2
     print addition
-~~~
-{: .language-python }
+```
 
-> ## Discussion
-> The function first asks the user to input two numbers. It then adds the two numbers and prints the result. The means of retrieving the two numbers and then add them are tightly coupled as we would have to change this function if wanted the numbers to come from somewhere (e.g. a different calculation). This function can only be used in one scenario, when the user is supposed to enter two numbers that are then added. The following code, achieves the same but decouples the input retrieval from the adding step.
-> ~~~
-> def addition(num_1, num_2):
->    addition = num_1 + num_2
->    print addition
+::::::::::::::::::::::::::::::::::::: spoiler 
+
+## Discussion
+The function first asks the user to input two numbers. It then adds the two numbers and prints the result. The means of retrieving the two numbers and then add them are tightly coupled as we would have to change this function if wanted the numbers to come from somewhere (e.g. a different calculation). This function can only be used in one scenario, when the user is supposed to enter two numbers that are then added. The following code, achieves the same but decouples the input retrieval from the adding step.
+
+```python
+def addition(num_1, num_2):
+   addition = num_1 + num_2
+   print addition
 >
-> num_1 = float(raw_input("Enter Number One"))
-> num_2 = float(raw_input("Enter Number Two"))
-> 
-> addition(num_1, num_2)
-> ~~~
-> {: .language-python }
-> 
-> In this code, the function `addition` can be called with any two numbers independent from where those numbers are coming from. If we want to change the code so that the numbers are read from a file, all we need to change are the two lines in which `num_1` and `num_2` are defined.
-> 
-{: .solution}
+num_1 = float(raw_input("Enter Number One"))
+num_2 = float(raw_input("Enter Number Two"))
+
+addition(num_1, num_2)
+```
+
+In this code, the function `addition` can be called with any two numbers independent from where those numbers are coming from. If we want to change the code so that the numbers are read from a file, all we need to change are the two lines in which `num_1` and `num_2` are defined.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## How to know if something is tightly coupled?
 
@@ -80,7 +84,7 @@ If the answer is yes, then your two components are tightly coupled. If the answe
 
 For instance, look at the following piece of code, does it look familiar?
 
-~~~
+```python
 def addition(numbers):
     total = 0
     for i in numbers:
@@ -103,8 +107,7 @@ for i in range(0, num_numbers):
 
 answer = addition(numbers)
 print "The answer to the addition is: %d" % (answer)
-~~~
-{: .language-python}
+```
 
 This is the same code from before that adds two numbers. However, it is as loosely coupled as it can be. The different pieces of code are not only loosely coupled to each other, but the code is also loosely coupled to its purpose. It doesn’t have to be two numbers anymore that are being added but can be however many numbers need to be summed up. However, the code got considerably longer and it is a lot harder to understand its purpose. Therefore, you should always ask yourself, do I need my code to be more loosely coupled or more generalized or is this the right balance between loose coupling and understandability?
 
@@ -132,7 +135,7 @@ Some programming languages (like Java or C#) provide means of hiding information
 
 As an example for information hiding, let’s look at the following piece of code. There are two files, one that defines the function `say_something` and one that uses it. If you want to change the animal that makes the sound, you need to know that there is a global variable in `sound.py` that you need to change. 
 
-~~~
+```python
 # sound.py
 animal_type = "cat"
 
@@ -145,12 +148,11 @@ import sound
 
 sound.animal_type = "dog" # violates information hiding principle
 sound.say_something("bark")
-~~~
-{: .language-python}
+```
 
 The following piece of code hides the information about the global variable. Instead, a function parameter is added that you can use to set the animal. If the implementation of `say_something_animal` changes to for example set a global variable to the passed in value, then the call in `script.py` does not have to change at all. The internal workings of `say_something_animal` stay completely hidden.
 
-~~~
+```python
 # sound.py
 def say_something_animal(sound, animal_type="cat"):
     print("The {} says {}.".format(animal_type, sound))
@@ -160,14 +162,13 @@ def say_something_animal(sound, animal_type="cat"):
 import sound
 
 sound.say_something("bark", animal_type="dog")
-~~~
-{: .language-python }
+```
 
 ### Object-oriented Information Hiding
 
 More often information hiding is talked about in the context of object-oriented programming. In the following example, knowledge about the internal workings of the class are required to use the class:
 
-~~~
+```python
 class Animal:
 
     animal_type = "cat"
@@ -180,12 +181,11 @@ class Animal:
 a = Animal()
 a.sound = "hiss"
 a.make_sound()
-~~~
-{: .language-python }
+```
 
 As a result, we would be able to rename the variable sound without having to change the code that uses the Animal class. Instead, we can add a constructor parameter, which would allow us to rename the variable as much as we like.
 
-~~~
+```python
 class Animal:
 
     def __init__(self, animal_type="cat", sound="meow"):
@@ -199,8 +199,7 @@ class Animal:
 
 a = Animal(sound="hiss")
 a.make_sound()
-~~~
-{: .language-python }
+```
 
 
 ## Abstraction
@@ -221,11 +220,10 @@ Spolsky was a program manager for Microsoft Excel in the 90s, he co-created Stac
 
 But what does it mean that all abstractions are leaky? What Spolsky is describing with this law is the fact that as soon as an abstraction is complex enough, the complexity of certain implementation details that abstractions hide bubble up to the higher layers. To use a very simple example, consider the following function that divides two number and subtracts one from it:
 
-~~~
+```python
 def divide_minus_one(num_1, num_2):
 	return num_1/num_2 - 1
-~~~
-{: .language-python }
+```
 
 If you use this function and pass in 0 as the second argument you will get a ZeroDivisionError. This means that the implementation specific details (that num_1 is divided by num_2) cause an error that is passed on to the next layer (your code). The abstraction is leaky. To be able to avoid this error, you need to know the implementation details of the function to then handle the division by 0 case in your code.
 
@@ -240,11 +238,10 @@ In this case, a Python script used for chemistry calculations yielded different 
 
 Another example is floating point arithmetic. When we are using Python, we typically use the decimal system for calculations. However, numbers are internally stored in a binary system (consisting of 1s and 0s). Not all decimal numbers can be represented as binary numbers. This is similar to not being able to represent certain fractions like ⅓ as a decimal number. 0.1 is a decimal number that can’t be represented as a binary number (it would be a never ending number). This leads on the one hand to rounding errors when your number get too small, on the other hand you might encounter some special cases like the following:
 
-~~~
+```python
 >>> 0.1+0.1+0.1 == 0.3
 False
-~~~
-{: .language-python }
+```
 
 In this leaky abstraction, how floating point numbers are represented in the system leaks through to your Python code.
 
@@ -267,7 +264,7 @@ While this in theory might seem straightforward, it can get pretty tricky when y
 
 Look at the following example and think about what the different responsibilities of the class are.
 
-~~~
+```python
 class Student:
 
     def register_student(self):
@@ -278,14 +275,13 @@ class Student:
 
     def send_email(self):
         # some logic
-~~~
-{: .language-python }
+```
 
 In the above example, the `Student` class has three different responsibilities: registering students, calculating the results for a student, and sending an email to the student. This means that it also has at least three reasons to change: if students need to be registered differently, if the results of a student need to be calculated differently, or if emails need to be sent out differently.
 
 The following code separates out those responsibilities into different classes.
 
-~~~
+```python
 class Student:
     def set_address(self, address):
         # do logic
@@ -300,8 +296,17 @@ class Registrar:
 class EmailService:
     def send_email(self, student):
         # do logic
-~~~
-{: .language-python } 
+``` 
 
 Now, each class has only one responsibility. The `Student` class is used to manage student data. The `Registrar` class’ responsibility is to register students (and potentially unregister them). The `EmailService` sends emails. A side effect of applying the SRP is that each class can now potentially be used in a different context (e.g. the `EmailService` could be extended to send emails to faculty).
 
+
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Dependencies need to be managed as well as the code itself.
+- *Coupling* refers to what extend the components of a piece of software are connected. Ideally, the components are loosely coupled so that if one component is changed, the others do not have to be changed as well.
+- There are many techniques and best practices to achieve loose coupling, information hiding, abstraction, and the Single Responsibility Principle are some of them.
+
+::::::::::::::::::::::::::::::::::::::::::::::::

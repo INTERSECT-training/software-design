@@ -2,14 +2,23 @@
 title: "Instructions"
 teaching: 5
 exercises: 0
-questions:
-- "What are some best practices and recommendations to write high-quality code?"
-objectives:
-- "At the end of this module you should have a better understanding of best practices for writing readable and maintainable code one instruction at a time."
-keypoints:
-- "There are lot of easy to follow recommendations that make your code instantly easier to read and understand (and thereby maintain)."
-- "Writing high-quality code is the first step towards good software design."
 ---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What are some best practices and recommendations to write high-quality code?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- At the end of this module you should have a better understanding of best practices for writing readable and maintainable code one instruction at a time.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
 
 # Layer 1: Instructions
 
@@ -17,11 +26,8 @@ In 2008, Robert C. Martin published his book “Clean Code: A Handbook of Agile 
 
 ## Naming Things
 
-<div style="float:right">
-<a href="https://geek-and-poke.com/geekandpoke/2015/1/12/what-every-good-system-needs" target="_blank">
-<img src="/assets/images/geek-poke-typo2.jpeg" alt="Geek & Poke - What every good system needs" width="350px">
-</a>
-</div>
+
+[![](fig/geek-poke-typo2.jpeg){alt='Geek & Poke - What every good system needs' style="float:right; width:350px"}](https://geek-and-poke.com/geekandpoke/2015/1/12/what-every-good-system-needs)
 
 Naming things is one of the hardest things in programming: you want to use names that are descriptive but not too long. It's an art. What you should absolutely avoid are variable names like `a`, `b`, or `c` and function names like `myfunction` or `do_this`. There are a few exceptions, for example, it can be ok to call your counter in a for-loop `i` but even in those cases there is usually a better name.
 
@@ -115,11 +121,21 @@ Keep in mind that your code is not for professional developers and therefore a l
 - **Adhere to the standards of the programming language.** This will on the one hand make it easier for other people who are used to the standard to read and understand your code. On the other hand, this will allow you to leverage tools such as the ones that are included with your IDE of choice.
 - **Make sure your comments are correct.** This might seem obvious but make sure that if you change your code after you commented it that you also adjust your comments. There is nothing more confusing than a comment that the next line does X when it actually does Y.
 
-> ## A word on self-documenting code
-> You might finds statements like the following on website and other programming best practices resources:
-> * “Self-documenting code is code that doesn’t require code comments for a human to understand its naming conventions and what it is doing.” <br><a href="https://hackbrightacademy.com/blog/writing-self-documenting-code/">Source: Hackbright Academy</a>
-> * “In theory, the code of a good engineer should be so clear and readable that he simply does not need any documentation.” <br><a href="https://multi-programming.com/blog/self-documenting-code">Source: multi-programming.com</a>
-> * “Self documenting code is defined as code that explains itself without the need of extraneous documentation.” <br><a href="https://anthonysciamanna.com/2014/04/05/self-documenting-code-and-meaningful-comments.html">Source: anthonysciamanna.com</a>
-> 
-> While it is true that your code should ideally tell the reader something about its purpose through its structure, and variable and function naming, there still need to be comments and documentation to make it understandable and maintainable. The intention of the programmer and the answer to the question "why was this code written the way it is" can in most cases not be conveyed through naming and structure alone.
-{: .callout}
+::::::::::::::::::::::::::::::::::::: callout
+## A word on self-documenting code
+You might finds statements like the following on website and other programming best practices resources:
+* “Self-documenting code is code that doesn’t require code comments for a human to understand its naming conventions and what it is doing.” <br><a href="https://hackbrightacademy.com/blog/writing-self-documenting-code/">Source: Hackbright Academy</a>
+* “In theory, the code of a good engineer should be so clear and readable that he simply does not need any documentation.” <br><a href="https://multi-programming.com/blog/self-documenting-code">Source: multi-programming.com</a>
+* “Self documenting code is defined as code that explains itself without the need of extraneous documentation.” <br><a href="https://anthonysciamanna.com/2014/04/05/self-documenting-code-and-meaningful-comments.html">Source: anthonysciamanna.com</a>
+
+While it is true that your code should ideally tell the reader something about its purpose through its structure, and variable and function naming, there still need to be comments and documentation to make it understandable and maintainable. The intention of the programmer and the answer to the question "why was this code written the way it is" can in most cases not be conveyed through naming and structure alone.
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- There are lot of easy to follow recommendations that make your code instantly easier to read and understand (and thereby maintain).
+- Writing high-quality code is the first step towards good software design.
+
+::::::::::::::::::::::::::::::::::::::::::::::::

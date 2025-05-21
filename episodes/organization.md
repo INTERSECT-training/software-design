@@ -2,17 +2,25 @@
 title: "Organizing Code"
 teaching: 10
 exercises: 0
-questions:
-- "What does it mean to organize code?"
-- "What is a function?"
-objectives:
-- "At the end of this module you should have a better understanding of what spaghetti code is and how to organize it better."
-keypoints:
-- "Functions can be used to structure code."
-- "Code that is better organized is easier to understand and maintain."
-- "Duplicate code should be avoided."
 ---
-# From Instructions to Structure: Organizing Code
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What does it mean to organize code?
+- What is a function?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- At the end of this module you should have a better understanding of what spaghetti code is and how to organize it better.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+ From Instructions to Structure: Organizing Code
 
 ## What’s a Function?
 
@@ -66,3 +74,14 @@ Whitespace is an often underestimated tool to create structure in code. Lines of
 ## Know What’s Being Offered
 
 Most programming languages offer a lot of utility functions and solutions for commonly encountered problems. While it takes a lot of time to learn every feature of a programming language, you should first check what solutions are part of the basic functionality of the programming language you are using before implementing your own solution. For instance, if you need to solve a common math problem, first check if your programming language has a math package and if it includes a function that does what you need before implementing your own.
+
+
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Functions can be used to structure code.
+- Code that is better organized is easier to understand and maintain.
+- Duplicate code should be avoided.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
