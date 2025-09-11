@@ -91,12 +91,12 @@ varnish: intersect-training/varnish
 
 analytics: |
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src='https://www.googletagmanager.com/gtag/js?id={G-K0V0NC6MEJ}#' ></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0V0NC6MEJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{G-K0V0NC6MEJ}');
+    gtag('config', 'G-K0V0NC6MEJ');
   </script>
 
